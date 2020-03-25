@@ -85,5 +85,17 @@ print("______________________")
 winner = max(candidate_votes, key=candidate_votes.get)
 print(f"Winner: {winner}")
 
+outputfilepath = os.path.join('.', 'Resources')
+#********send to new file
+with open('election_results.txt', 'w') as outputfile:
+    outputfile.write("Election Results, by Ian Mac Moore, v1, 3/25/20\n")
+    outputfile.write("______________________\n")
+    outputfile.write(f"Total Votes: {totalvotes}\n")
+    outputfile.write("______________________\n")
+    for cand in candidate_votes:
+        outputfile.write(f"{cand}: {candidate_votes[cand]/totalvotes*100:.3f}% ({candidate_votes[cand]})\n")
 
+    outputfile.write("______________________\n")
+    outputfile.write(f"Winner: {winner}\n")
+    
     
